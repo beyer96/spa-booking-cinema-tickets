@@ -1,0 +1,68 @@
+@import url(./index.css);
+
+header {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 70px;
+    background: var(--light-purple);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header ul {
+    list-style: none;
+}
+header a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 0 1rem;
+}
+header a:hover,
+header a:focus {
+    color: white;
+}
+header li {
+    display: inline;
+}
+main {
+    margin: 0 auto;
+    padding: 2rem 0;
+    text-align: center;
+}
+main h1 {
+    margin-bottom: 1rem;
+}
+.movies {
+    width: 100vw;
+    padding: 2rem 6rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template: none / repeat(4, 1fr);
+    grid-gap: 1.3rem;
+}
+.movies a:hover,
+.movies a:focus {
+    color: var(--dark-purple);
+    opacity: .7;
+}
+.movies__movie a {
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-decoration: none;
+    color: unset;
+}
+.movies__movie h2 {
+    margin: 1rem 0;
+}
+.movies__movie img {
+    max-width: 100%;
+}
+.movies__movie p {
+    margin-top: auto;
+}

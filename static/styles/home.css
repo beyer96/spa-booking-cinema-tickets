@@ -1,0 +1,100 @@
+@import url(./index.css);
+
+header {
+    padding-top: 2rem;
+    padding-left: 8rem;
+    width: 100vw;
+    height: 420px;
+}
+header > p {
+    width: 420px;
+    margin-top: 1rem;
+}
+h1 {
+    font-size: 64px;
+}
+h2 {
+    font-size: 36px;
+}
+
+.cta-buttons {
+    position: absolute;
+    top: 17rem;
+    left: 0;
+    width: 750px;
+    height: 130px;
+    background-color: var(--light-purple);
+    border-radius: 0 72px 72px 0;
+    padding-left: 8rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.cta-buttons__button {
+    width: 250px;
+    height: 60px;
+    background-color: var(--dark-purple);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.cta-buttons__button:hover,
+.cta-buttons__button:focus {
+    cursor: pointer;
+    background-color: var(--dark-purple-hover);
+}
+.cta-buttons span {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 1.5rem;
+}
+
+.top-picks {
+    margin: 0 auto;
+    padding-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "header header header header header"
+        ". . . . .";
+}
+.top-picks h2 {
+    grid-area: header;
+    margin: 0 auto;
+    font-size: 28px;
+}
+.top-picks__movie {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem;
+}
+.top-picks__movie img {
+    margin: 6px 0;
+    max-height: 100%;
+    max-width: 165px;
+}
+.top-picks__movie button {
+    margin-top: auto;
+    width: 120px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: var(--dark-purple);
+    color: white;
+    border-radius: 15px;
+    border: none;
+}
+.top-picks__movie button:hover,
+.top-picks__movie button:focus {
+    cursor: pointer;
+    background-color: var(--dark-purple-hover);
+}
