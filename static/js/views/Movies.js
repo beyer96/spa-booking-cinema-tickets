@@ -2,15 +2,15 @@ import View from "./View.js";
 import movies from '../../../data/data.js';
 
 export default class extends View {
-    constructor() {
-        super();
+    constructor(params) {
+        super(params);
         this.setTitle("Movies");
     }
 
     populateMovies() {
         return movies.map((movie, i) => {
                 return `<div class="movies__movie">
-                    <a href="/schedule?movie=${i}" data-link>
+                    <a href="/schedule/${i}" data-link>
                         <h2>${movie.name}</h2>
                         <img src="${movie.image}" alt="" />
                         <p>${movie.description}</p>

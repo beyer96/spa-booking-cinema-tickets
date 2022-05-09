@@ -35,6 +35,47 @@ h1 {
     text-align: center;
 }
 
+.selectors {
+    height: 100px;
+    width: 550px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+.selectors > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.selectors label {
+    font-weight: 600;
+}
+.selectors > div > select {
+    width: 160px;
+    height: 40px;
+    background: var(--light-purple);
+    border: none;
+    font-size: 20px;
+}
+#movie {
+    width: 300px;
+}
+.selectors > div > select > option {
+    height: 90px;
+    padding: 3px;
+}
+.selectors > div > select > option:checked {
+    background: var(--light-purple-hover);
+    color: white;
+}
+
+h2 {
+    text-align: center;
+    margin: 2rem auto;
+}
+
 .seats {
     width: 1000px;
     display: flex;

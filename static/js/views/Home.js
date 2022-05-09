@@ -1,9 +1,22 @@
 import View from "./View.js";
+import movies from "../../../data/data.js";
 
 export default class extends View {
-    constructor() {
-        super();
+    constructor(params) {
+        super(params);
         this.setTitle('Book-buster');
+    }
+    topPicksIndexes = [0, 2, 3, 4, 5];
+    getTopPicks() {
+        return this.topPicksIndexes.map(index => {
+            return `
+            <div class="top-picks__movie">
+                <h3>${movies[index].name}</h3>
+                <img src="${movies[index].image}" alt="Movie" />
+                <a href='/schedule/${index}' class="top-picks__book-button">Book</a>
+            </div>
+            `
+        }).join('');    
     }
 
     async getHtml() {
@@ -22,31 +35,7 @@ export default class extends View {
         <main>
             <div class="top-picks">
                 <h2>Top picks</h2>
-                <div class="top-picks__movie">
-                    <h3>Movie</h3>
-                    <img src="https://unsplash.it/165/162/" alt="Movie" />
-                    <button class="top-picks__book-button">Book</button>
-                </div>
-                <div class="top-picks__movie">
-                    <h3>Movie</h3>
-                    <img src="https://unsplash.it/163/163/" alt="Movie" />
-                    <button class="top-picks__book-button">Book</button>
-                </div>
-                <div class="top-picks__movie">
-                    <h3>Movie</h3>
-                    <img src="https://unsplash.it/165/164/" alt="Movie" />
-                    <button class="top-picks__book-button">Book</button>
-                </div>
-                <div class="top-picks__movie">
-                    <h3>Movie</h3>
-                    <img src="https://unsplash.it/159/165/" alt="Movie" />
-                    <button class="top-picks__book-button">Book</button>
-                </div>
-                <div class="top-picks__movie">
-                    <h3>Movie</h3>
-                    <img src="https://unsplash.it/165/161/" alt="Movie" />
-                    <button class="top-picks__book-button">Book</button>
-                </div>
+                ${this.getTopPicks()}
             </div>
         </main>
         `;
