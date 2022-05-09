@@ -5,6 +5,8 @@
     --light-purple-hover: #807fb6;
     --dark-purple: #443F82;
     --dark-purple-hover: #2e2b5a;
+    --booked: rgb(126, 230, 126);
+    --booked-hover: rgb(119, 170, 119);
 }
 
 * {

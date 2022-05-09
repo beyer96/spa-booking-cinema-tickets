@@ -1,7 +1,7 @@
 import movies from '../../data/data.js';
 import Home from './views/Home.js';
 import Movies from './views/Movies.js';
-import Schedule, { displaySeats } from './views/Schedule.js';
+import Schedule, { displaySeats, selectSeat } from './views/Schedule.js';
 
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
@@ -56,13 +56,29 @@ document.addEventListener("DOMContentLoaded", () => {
             navigateTo(e.target.href);
         }
         // click event for rerouting app (if child node of anchor tag was clicked)
-        if(e.target.parentElement?.matches('[data-link]')) {
+        else if(e.target.parentElement?.matches('[data-link]')) {
             e.preventDefault();
             navigateTo(e.target.parentNode.href);
         }
+        // click event for unselecting reserved seats
+        if(e.target.matches('[data-reserved=booked]')) {
+            // unselectSeat()
+            e.target.dataset.reserved = "false";
+        }
+        // click event for unselecting reserved seats (if text span inside div was clicked)
+        else if(e.target.parentElement?.matches('[data-reserved=booked]')) {
+            // unselectSeat()
+            e.target.parentElement.dataset.reserved = "false";
+        }
         // click event for reserving seats
-        if(e.target.matches('[data-reserved=false]') || e.target.parentElement?.matches('[data-reserved=false]')) {
-            console.log('reserve!');
+        else if(e.target.matches('[data-reserved=false]')) {
+            selectSeat(e.target.textContent.trim());
+            e.target.dataset.reserved = "booked";
+        }
+        // click event for reserving seats (if text span inside div was clicked)
+        else if(e.target.parentElement?.matches('[data-reserved=false]')) {
+            selectSeat(e.target.textContent.trim());
+            e.target.parentElement.dataset.reserved = "booked";
         }
     })
     

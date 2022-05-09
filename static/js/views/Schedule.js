@@ -53,6 +53,20 @@ export function displayMovies(movieID = 0) {
     })
 }
 
+export function selectSeat(seatNumber) {
+    let movie = document.getElementById('movie').selectedOptions[0];
+    let selectedTime = document.getElementById('date').selectedOptions[0];
+    let selectedSeat = {
+        movie: movie.innerText,
+        selectedTime: selectedTime.innerText,
+        seat: seatNumber,
+        databaseMovieIndex: Number(movie.attributes.key.value),
+        databaseDayIndex: Number(selectedTime.attributes.day.value),
+        databaseSessionIndex: Number(selectedTime.attributes.session.value)
+    }
+    console.log(selectedSeat);
+}
+
 export default class extends View {
     constructor(params) {
         super(params);
@@ -75,7 +89,7 @@ export default class extends View {
             let date = new Date(Date.now() + MILISECONDS_TO_DAY * day);
             nextSession = `${date.getDate()}. ${date.getMonth()+1}. -- ${movies[movieID].dates[day][0].time}`
         }
-        
+
         return `
             <link rel="stylesheet" href="../static/styles/schedule.css">
             <header>

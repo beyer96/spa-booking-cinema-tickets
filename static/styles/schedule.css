@@ -109,3 +109,12 @@ h2 {
     cursor: pointer;
     background: var(--light-purple-hover)
 }
+[data-reserved=booked] {
+    background: var(--booked);
+    color: black;
+}
+[data-reserved=booked]:hover {
+    cursor: pointer;
+    background: var(--booked-hover);
+    color: black;
+}
