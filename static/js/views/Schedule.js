@@ -1,25 +1,44 @@
 import View from "./View.js";
 import movies from "../../../data/data.js";
 
-const MILISECONDS_TO_DAY = 86400000;
+export const MILISECONDS_TO_DAY = 86400000;
 
-let selectedSeats = [];
+export let selectedSeats = JSON.parse(localStorage.getItem('selectedSeats')) || [];
+console.log(selectedSeats);
 
 export function displaySeats(movieID, day, session) {
     let seatNumber = 0;
+    let selectedSeatsForCurrentSession = [];
+    if(selectedSeats.length > 0) {
+        selectedSeatsForCurrentSession = selectedSeats.filter(seat => (seat.databaseMovieIndex === movieID && seat.databaseDayIndex === day && seat.databaseSessionIndex === session));
+    }
     return movies[movieID].dates[day][session].seats.map((row, i) => {
         return `
             <div class="seats__row">
                 ${row.map((seat, x) => {
                     seatNumber++;
+                    if((selectedSeatsForCurrentSession.findIndex(seat => Number(seat.seat) === seatNumber)) > -1) {
+                        return `
+                        <div class="seats__seat" data-seat="${seatNumber}" data-reserved="booked">
+                            <span class="seats__seat-number">${seatNumber}</span>
+                        </div>
+                    `
+                    }
                     return `
-                        <div class="seats__seat" data-reserved="${seat}">
+                        <div class="seats__seat" data-seat="${seatNumber}" data-reserved="${seat}">
                             <span class="seats__seat-number">${seatNumber}</span>
                         </div>
                     `
                 }).join('')}
             </div>`
     }).join('');
+}
+
+export function markSelectedSeatsForCurrentSession(seatsForSession) {
+    if(seatsForSession.length <= 0) return;
+    seatsForSession.forEach(seat => {
+        document.querySelector(`[data-seat="${seat.seat}"]`).dataset.reserved = "booked";
+    })
 }
 
 export function displayDates(movieID) {
@@ -61,6 +80,7 @@ export function selectSeat(seatNumber) {
     }
     selectedSeats.push(selectedSeat);
     console.log(selectedSeats);
+    localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
 }
 
 export function unselectSeat(seatNumber) {
@@ -78,14 +98,15 @@ export function unselectSeat(seatNumber) {
     }
     selectedSeats = selectedSeats.filter(filterSeats)
     console.log(selectedSeats)
+    localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
 }
 
-export function displaySelectedSeats() {
-    if(selectedSeats.length <= 0) return '<p>No seats selected. Please select below.</p>'
+export function displaySelectedSeats(movieID) {
+    if(selectedSeats.length <= 0) return '<p>No seats selected for this movie. Please select seats below.</p>'
 
-    let movieIndex = document.getElementById('movie').selectedIndex;
-    let selectedSessionIndex = Number(document.getElementById('date').selectedOptions[0].attributes.session.value);
-    let selectedDayIndex = Number(document.getElementById('date').selectedOptions[0].attributes.day.value);
+    let movieIndex = document.getElementById('movie')?.selectedIndex || Number(movieID) || 0;
+    let selectedSessionIndex = Number(document.getElementById('date')?.selectedOptions[0].attributes.session.value) || 0;
+    let selectedDayIndex = Number(document.getElementById('date')?.selectedOptions[0].attributes.day.value) || movies[movieIndex].dates.findIndex(date => date.length > 0);
     let filterSeats = seat => {
         if(seat.databaseDayIndex === selectedDayIndex && 
             seat.databaseMovieIndex === movieIndex && 
@@ -96,6 +117,8 @@ export function displaySelectedSeats() {
     }
     
     let selectedSeatsForSelectedSession = selectedSeats.filter(filterSeats)
+    /* markSelectedSeatsForCurrentSession(selectedSeatsForSelectedSession); */
+    if(selectedSeatsForSelectedSession.length <= 0) return '<p>No seats selected for this movie. Please select seats below.</p>'
     let seatDivs = selectedSeatsForSelectedSession.map(seat => {
         return `
             <div class="selected-seats__seat">
@@ -107,7 +130,7 @@ export function displaySelectedSeats() {
     }).join('');
     return `
         ${seatDivs}
-        <button>Book seats</button>
+        <a href="/cart" data-link>Book seats</a>
     `
 }
 
@@ -155,7 +178,7 @@ export default class extends View {
                 </div>
 
                 <div id="selected-seats">
-                    ${displaySelectedSeats(selectedSeats)}
+                    ${displaySelectedSeats(this.params.movieID)}
                 </div>
 
                 <h2>Seats: <span id="movie-name">${movies[movieID].name}</span> --- <span id="selected-time">${nextSession}</span></h2>

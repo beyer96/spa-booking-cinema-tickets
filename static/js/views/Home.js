@@ -13,7 +13,7 @@ export default class extends View {
             <div class="top-picks__movie">
                 <h3>${movies[index].name}</h3>
                 <img src="${movies[index].image}" alt="Movie" />
-                <a href='/schedule/${index}' class="top-picks__book-button">Book</a>
+                <a href='/schedule/${index}' class="top-picks__book-button" data-link>Book</a>
             </div>
             `
         }).join('');    

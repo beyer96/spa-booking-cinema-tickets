@@ -329,6 +329,4 @@ const movies = [
     }
 ]
 
-console.log(movies)
-
 export default movies;

@@ -84,21 +84,20 @@ h1 {
     grid-template-columns: 2fr 1fr 1fr 50px;
     padding: .2rem 0;
 }
-#selected-seats > button {
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, 0);
-    bottom: 0;
+#selected-seats > a {
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 40px;
     width: 100px;
-    margin: 1rem 0;
     background: var(--dark-purple);
     color: white;
-    border: none;
     border-radius: 15px;
+    text-decoration: none;
 }
-#selected-seats > button:hover,
-#selected-seats > button:focus {
+#selected-seats > a:hover,
+#selected-seats > a:focus {
     cursor: pointer;
     background: var(--dark-purple-hover);
 }

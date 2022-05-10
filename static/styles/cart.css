@@ -1,0 +1,67 @@
+@import url(./index.css);
+
+header {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 70px;
+    background: var(--light-purple);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header ul {
+    list-style: none;
+}
+header a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 0 1rem;
+}
+header a:hover,
+header a:focus {
+    color: white;
+}
+header li {
+    display: inline;
+}
+
+main {
+    padding: 2rem 6rem;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+#cart {
+    width: 1000px;
+    margin: 0 auto;
+}
+#cart p {
+    margin: 0 auto;
+    text-align: center;
+}
+#cart > div {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 50px;
+    padding: .2rem 0;
+}
+#cart > a {
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100px;
+    background: var(--dark-purple);
+    color: white;
+    border-radius: 15px;
+    text-decoration: none;
+}
+#cart > a:hover,
+#cart > a:focus {
+    cursor: pointer;
+    background: var(--dark-purple-hover);
+}

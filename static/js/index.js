@@ -1,7 +1,8 @@
 import movies from '../../data/data.js';
+import Cart, { displayCart } from './views/Cart.js';
 import Home from './views/Home.js';
 import Movies from './views/Movies.js';
-import Schedule, { displaySeats, displaySelectedSeats, selectSeat, unselectSeat } from './views/Schedule.js';
+import Schedule, { displaySeats, displaySelectedSeats, markSelectedSeatsForCurrentSession, selectSeat, unselectSeat, MILISECONDS_TO_DAY } from './views/Schedule.js';
 
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
@@ -24,7 +25,8 @@ const router = async () => {
         { path: '/', view: Home },
         { path: '/movies', view: Movies },
         { path: '/schedule', view: Schedule },
-        { path: '/schedule/:movieID', view: Schedule }
+        { path: '/schedule/:movieID', view: Schedule },
+        { path: '/cart', view: Cart}
     ];
 
     const errorRoute = { view: () => console.error('Error 404') };
@@ -88,18 +90,26 @@ document.addEventListener("DOMContentLoaded", () => {
             let selectedSeats = displaySelectedSeats();
             document.getElementById('selected-seats').innerHTML = selectedSeats;
         }
-        // click event for unselecting reserved seat via 'X' button
+        // click event for unselecting reserved seat via 'X' button in Schedule.js
         if(e.target.matches('[id=unselect-seat]')) {
             unselectSeat(e.target.attributes.seat.value);
+            document.querySelector(`[data-seat="${e.target.attributes.seat.value}"]`).dataset.reserved = "false"
             let selectedSeats = displaySelectedSeats();
             document.getElementById('selected-seats').innerHTML = selectedSeats;
+        }
+        else if(e.target.matches('[id=remove-button]')) {
+            let selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
+            let indexToRemove = Number(e.target.attributes.key.value);
+            selectedSeats = selectedSeats.filter((seat, i) => i !== indexToRemove);
+            localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
+            let cart = displayCart();
+            document.getElementById('cart').innerHTML = cart;
         }
     })
     
     document.addEventListener('change', (e) => {
         // onchange event for Schedule.js file - select inputs 'movie' and 'date'
         if(e.target.id === 'movie') {
-            const MILISECONDS_TO_DAY = 86400000;
             let movie = document.getElementById('movie').value;
             // change h2 header to current movie
             document.getElementById('movie-name').innerText = movie;
@@ -119,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             document.getElementById('selected-time').innerText = dates[0][2];
             let movieID = document.getElementById('movie').selectedIndex;
-            let seats = displaySeats(movieID, dates[0][0], dates[0][1]);
+            let seats = displaySeats(movieID, Number(dates[0][0]), Number(dates[0][1]));
             document.getElementById('seats').innerHTML = seats;
             document.getElementById('selected-seats').innerHTML = displaySelectedSeats();
         }
