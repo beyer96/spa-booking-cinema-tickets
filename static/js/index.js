@@ -1,7 +1,7 @@
 import movies from '../../data/data.js';
 import Home from './views/Home.js';
 import Movies from './views/Movies.js';
-import Schedule, { displaySeats, selectSeat } from './views/Schedule.js';
+import Schedule, { displaySeats, displaySelectedSeats, selectSeat, unselectSeat } from './views/Schedule.js';
 
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
@@ -62,28 +62,42 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         // click event for unselecting reserved seats
         if(e.target.matches('[data-reserved=booked]')) {
-            // unselectSeat()
+            unselectSeat(e.target.textContent.trim());
             e.target.dataset.reserved = "false";
+            let selectedSeats = displaySelectedSeats();
+            document.getElementById('selected-seats').innerHTML = selectedSeats;
         }
         // click event for unselecting reserved seats (if text span inside div was clicked)
         else if(e.target.parentElement?.matches('[data-reserved=booked]')) {
-            // unselectSeat()
+            unselectSeat(e.target.textContent.trim());
             e.target.parentElement.dataset.reserved = "false";
+            let selectedSeats = displaySelectedSeats();
+            document.getElementById('selected-seats').innerHTML = selectedSeats;
         }
         // click event for reserving seats
         else if(e.target.matches('[data-reserved=false]')) {
             selectSeat(e.target.textContent.trim());
             e.target.dataset.reserved = "booked";
+            let selectedSeats = displaySelectedSeats();
+            document.getElementById('selected-seats').innerHTML = selectedSeats;
         }
         // click event for reserving seats (if text span inside div was clicked)
         else if(e.target.parentElement?.matches('[data-reserved=false]')) {
             selectSeat(e.target.textContent.trim());
             e.target.parentElement.dataset.reserved = "booked";
+            let selectedSeats = displaySelectedSeats();
+            document.getElementById('selected-seats').innerHTML = selectedSeats;
+        }
+        // click event for unselecting reserved seat via 'X' button
+        if(e.target.matches('[id=unselect-seat]')) {
+            unselectSeat(e.target.attributes.seat.value);
+            let selectedSeats = displaySelectedSeats();
+            document.getElementById('selected-seats').innerHTML = selectedSeats;
         }
     })
     
     document.addEventListener('change', (e) => {
-        // onchange event for Schedule.js file
+        // onchange event for Schedule.js file - select inputs 'movie' and 'date'
         if(e.target.id === 'movie') {
             const MILISECONDS_TO_DAY = 86400000;
             let movie = document.getElementById('movie').value;
@@ -92,16 +106,8 @@ document.addEventListener("DOMContentLoaded", () => {
             let dates = [];
             // filtering each session time into 'dates' array
             movies.find(m => m.name === movie).dates.forEach((day, i) => {
-                if(i == 0) {
-                    day.map((session, x) => dates.push([i.toString(), x.toString(), 'Today -- ' + session.time]));
-                }
-                else if(i == 1) {
-                    day.map((session, x) => dates.push([i.toString(), x.toString(), 'Tommorow -- ' + session.time]));
-                }
-                else {
-                    let date = new Date(Date.now() + MILISECONDS_TO_DAY * i);
-                    day.map((session, x) => dates.push([i.toString(), x.toString(), `${date.getDate()}. ${date.getMonth()+1}. -- ${session.time}`]))
-                }
+                let date = new Date(Date.now() + MILISECONDS_TO_DAY * i);
+                day.map((session, x) => dates.push([i.toString(), x.toString(), `${date.getDate()}. ${date.getMonth()+1}. -- ${session.time}:00`]))
             });
             document.getElementById('date').innerHTML = '';
             dates.map((date, i) => {
@@ -115,6 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let movieID = document.getElementById('movie').selectedIndex;
             let seats = displaySeats(movieID, dates[0][0], dates[0][1]);
             document.getElementById('seats').innerHTML = seats;
+            document.getElementById('selected-seats').innerHTML = displaySelectedSeats();
         }
         // refresh map of seats for current session
         if(e.target.id === 'date') {
@@ -124,6 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let seats = displaySeats(movieID, day, session);
             document.getElementById('seats').innerHTML = seats;
             document.getElementById('selected-time').innerText = e.target.value;
+            document.getElementById('selected-seats').innerHTML = displaySelectedSeats();
         }
         
     })

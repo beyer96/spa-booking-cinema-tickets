@@ -1,6 +1,3 @@
-const date = new Date(Date.now());
-const tomorrow = new Date(date.getFullYear(), date.getMonth(),date.getDate() + 1);
-
 const movies = [
     {
         name: 'COMEDY WITH EDDIE MURPHY',
@@ -9,7 +6,7 @@ const movies = [
         dates: [
             [           
                 {
-                    time: '16:00',
+                    time: '16',
                     seats: [
                         [false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],
                         [false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],
@@ -22,33 +19,33 @@ const movies = [
                     ]
                 },
                 {
-                    time: '20:00',
+                    time: '20',
                     seats: [[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 }
             ],
             [
                 {
-                    time: '14:00',
+                    time: '14',
                     seats: [[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],  [false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],  [false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]                      
                     ]
                 },
                 {
-                    time: '16:00',
+                    time: '16',
                     seats: [[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],
                     ]
                 }
             ],
             [
                 {
-                    time: '18:00',
+                    time: '18',
                     seats: [[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 }
             ],
             [
                 {
-                    time: '14:00',
+                    time: '14',
                     seats: [[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 }
@@ -65,50 +62,50 @@ const movies = [
         dates: [
             [           
                 {
-                    time: '10:00',
+                    time: '10',
                     seats: [[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 },
                 {
-                    time: '18:00',
+                    time: '18',
                     seats: [[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 }
             ],
             [
                 {
-                    time: '12:00',
+                    time: '12',
                     seats: [[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],  [false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],  [false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]                      
                     ]
                 },
                 {
-                    time: '18:00',
+                    time: '18',
                     seats: [[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],
                     ]
                 }
             ],
             [           
                 {
-                    time: '20:00',
+                    time: '20',
                     seats: [[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 }
             ],
             [           
                 {
-                    time: '14:00',
+                    time: '14',
                     seats: [[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 },
                 {
-                    time: '16:00',
+                    time: '16',
                     seats: [[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 }
             ],
             [
                 {
-                    time: '16:00',
+                    time: '16',
                     seats: [[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 }
@@ -116,12 +113,12 @@ const movies = [
             [],
             [           
                 {
-                    time: '10:00',
+                    time: '10',
                     seats: [[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 },
                 {
-                    time: '16:00',
+                    time: '16',
                     seats: [[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 }
@@ -135,48 +132,48 @@ const movies = [
         dates: [
             [           
                 {
-                    time: '12:00',
+                    time: '12',
                     seats: [[false, true, true, false, true, true, true, true, true, false, false, false, false, false, true, false, false, true, false, false],[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, true, false, true, true, true, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 },
                 {
-                    time: '14:00',
+                    time: '14',
                     seats: [[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 }
             ],
             [
                 {
-                    time: '10:00',
+                    time: '10',
                     seats: [[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],  [false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],  [false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]                      
                     ]
                 },
                 {
-                    time: '20:00',
+                    time: '20',
                     seats: [[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],
                     ]
                 }
             ],
             [           
                 {
-                    time: '10:00',
+                    time: '10',
                     seats: [[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 },
                 {
-                    time: '16:00',
+                    time: '16',
                     seats: [[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 }
             ],
             [           
                 {
-                    time: '12:00',
+                    time: '12',
                     seats: [[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 },
                 {
-                    time: '18:00',
+                    time: '18',
                     seats: [[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 }
@@ -184,7 +181,7 @@ const movies = [
             [],
             [
                 {
-                    time: '10:00',
+                    time: '10',
                     seats: [[false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 }
@@ -201,50 +198,50 @@ const movies = [
             [],
             [           
                 {
-                    time: '12:00',
+                    time: '12',
                     seats: [[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 },
                 {
-                    time: '14:00',
+                    time: '14',
                     seats: [[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 }
             ],
             [
                 {
-                    time: '10:00',
+                    time: '10',
                     seats: [[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],  [false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],  [false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]                      
                     ]
                 },
                 {
-                    time: '20:00',
+                    time: '20',
                     seats: [[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],
                     ]
                 }
             ],
             [           
                 {
-                    time: '12:00',
+                    time: '12',
                     seats: [[false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, false, false, false, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, false, false, false, false, false, false, true, false, false, false, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 },
                 {
-                    time: '18:00',
+                    time: '18',
                     seats: [[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 }
             ],
             [
                 {
-                    time: '20:00',
+                    time: '20',
                     seats: [[false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 }
             ],
             [
                 {
-                    time: '14:00',
+                    time: '14',
                     seats: [[false, false, true, true, true, false, true, true, true, false, false, true, true, true, true, false, true, true, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 }
@@ -262,31 +259,31 @@ const movies = [
             [],
             [
                 {
-                    time: '10:00',
+                    time: '10',
                     seats: [[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],  [false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],  [false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]                      
                     ]
                 },
                 {
-                    time: '20:00',
+                    time: '20',
                     seats: [[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],
                     ]
                 } 
             ],
             [           
                 {
-                    time: '12:00',
+                    time: '12',
                     seats: [[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 },
                 {
-                    time: '16:00',
+                    time: '16',
                     seats: [[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 }
             ],
             [           
                 {
-                    time: '18:00',
+                    time: '18',
                     seats: [[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 }
@@ -305,26 +302,26 @@ const movies = [
             [],
             [           
                 {
-                    time: '14:00',
-                    seats: [[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
+                    time: '14',
+                    seats: [[false, true, true, false, false, true, false, true, false, false, false, false, false, false, false, false, false, false, false, false],[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, false, false, false, false, false, false, false, false, false, false, true, true, true, false, true, false, true, false, false],[false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 },
                 {
-                    time: '18:00',
-                    seats: [[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
+                    time: '18',
+                    seats: [[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, false, false, false, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 }
             ],
             ,
             [           
                 {
-                    time: '12:00',
-                    seats: [[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
+                    time: '12',
+                    seats: [[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, false, false, false, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 },
                 {
-                    time: '20:00',
-                    seats: [[false, false, false, false, false, false, true, true, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
+                    time: '20',
+                    seats: [[false, false, false, false, false, false, false, false, false, false, true, true, true, true, false, false, true, false, true, false],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, false, false, false, true, false, false],[false, false, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true],[false, true, true, false, false, false, true, true, true, false, false, true, true, true, false, true, false, true, false, false],[false, true, true, false, false, true, false, true, false, false, false, false, false, false, true, false, false, true, false, false],[false, false, true, true, true, false, true, true, true, false, false, true, true, false, true, false, false, true, true, true]
                     ]
                 }
             ],
