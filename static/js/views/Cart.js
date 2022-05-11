@@ -1,6 +1,5 @@
 import View from "./View.js";
-
-let selectedSeats = JSON.parse(localStorage.getItem('selectedSeats')) || [];
+import { selectedSeats } from "../index.js";
 
 export function displayCart() {
     if(selectedSeats.length <= 0) return `
@@ -18,7 +17,7 @@ export function displayCart() {
     }).join('');
     return `
         ${seats}
-        <a href="/thankyou" data-link>Buy tickets</a>
+        <a href="/thankyou" data-link>Book seats</a>
     `
 }
 
@@ -34,7 +33,7 @@ export default class extends View {
                 <ul>
                     <a href="/" data-link><li>Back home</li></a>
                     <a href="/movies" data-link><li>Movies</li></a>
-                    <a href="/schedule" id="cart" data-link><li>Schedule</li></a>
+                    <a href="/schedule" data-link><li>Schedule</li></a>
                 </ul>
             </header>
             <main>

@@ -2,7 +2,8 @@ import movies from '../../data/data.js';
 import Cart, { displayCart } from './views/Cart.js';
 import Home from './views/Home.js';
 import Movies from './views/Movies.js';
-import Schedule, { displaySeats, displaySelectedSeats, markSelectedSeatsForCurrentSession, selectSeat, unselectSeat, MILISECONDS_TO_DAY } from './views/Schedule.js';
+import Schedule, { displaySeats, displaySelectedSeats, selectSeat, unselectSeat, MILISECONDS_TO_DAY } from './views/Schedule.js';
+import Thankyou from './views/Thankyou.js';
 
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
@@ -15,7 +16,7 @@ const getParams = match => {
     }))
 }
 
-const navigateTo = url => {
+export const navigateTo = url => {
     history.pushState(null, null, url);
     router();
 }
@@ -26,7 +27,8 @@ const router = async () => {
         { path: '/movies', view: Movies },
         { path: '/schedule', view: Schedule },
         { path: '/schedule/:movieID', view: Schedule },
-        { path: '/cart', view: Cart}
+        { path: '/cart', view: Cart },
+        { path: '/thankyou', view: Thankyou }
     ];
 
     const errorRoute = { view: () => console.error('Error 404') };
@@ -50,6 +52,9 @@ const router = async () => {
 
 window.addEventListener('popstate', router);
 
+export let selectedSeats = JSON.parse(localStorage.getItem('selectedSeats')) || [];
+export let bookedSeats = JSON.parse(localStorage.getItem('bookedSeats')) || [];
+
 document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener('click', e => {
         // click event for rerouting app
@@ -62,43 +67,50 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             navigateTo(e.target.parentNode.href);
         }
+
         // click event for unselecting reserved seats
-        if(e.target.matches('[data-reserved=booked]')) {
-            unselectSeat(e.target.textContent.trim());
+        if(e.target.matches('[data-reserved=selected]')) {
+            selectedSeats = unselectSeat(e.target.textContent.trim());
+            localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
             e.target.dataset.reserved = "false";
-            let selectedSeats = displaySelectedSeats();
-            document.getElementById('selected-seats').innerHTML = selectedSeats;
+            let displayedSelectedSeats = displaySelectedSeats();
+            document.getElementById('selected-seats').innerHTML = displayedSelectedSeats;
         }
         // click event for unselecting reserved seats (if text span inside div was clicked)
-        else if(e.target.parentElement?.matches('[data-reserved=booked]')) {
-            unselectSeat(e.target.textContent.trim());
+        else if(e.target.parentElement?.matches('[data-reserved=selected]')) {
+            selectedSeats = unselectSeat(e.target.textContent.trim());
+            localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
             e.target.parentElement.dataset.reserved = "false";
-            let selectedSeats = displaySelectedSeats();
-            document.getElementById('selected-seats').innerHTML = selectedSeats;
+            let displayedSelectedSeats = displaySelectedSeats();
+            document.getElementById('selected-seats').innerHTML = displayedSelectedSeats;
         }
         // click event for reserving seats
         else if(e.target.matches('[data-reserved=false]')) {
-            selectSeat(e.target.textContent.trim());
-            e.target.dataset.reserved = "booked";
-            let selectedSeats = displaySelectedSeats();
-            document.getElementById('selected-seats').innerHTML = selectedSeats;
+            selectedSeats = selectSeat(e.target.textContent.trim());
+            localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
+            e.target.dataset.reserved = "selected";
+            let displayedSelectedSeats = displaySelectedSeats();
+            document.getElementById('selected-seats').innerHTML = displayedSelectedSeats;
         }
         // click event for reserving seats (if text span inside div was clicked)
         else if(e.target.parentElement?.matches('[data-reserved=false]')) {
-            selectSeat(e.target.textContent.trim());
-            e.target.parentElement.dataset.reserved = "booked";
-            let selectedSeats = displaySelectedSeats();
-            document.getElementById('selected-seats').innerHTML = selectedSeats;
+            selectedSeats = selectSeat(e.target.textContent.trim());
+            localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
+            e.target.parentElement.dataset.reserved = "selected";
+            let displayedSelectedSeats = displaySelectedSeats();
+            document.getElementById('selected-seats').innerHTML = displayedSelectedSeats;
         }
         // click event for unselecting reserved seat via 'X' button in Schedule.js
         if(e.target.matches('[id=unselect-seat]')) {
-            unselectSeat(e.target.attributes.seat.value);
+            selectedSeats = unselectSeat(e.target.attributes.seat.value);
+            localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
             document.querySelector(`[data-seat="${e.target.attributes.seat.value}"]`).dataset.reserved = "false"
-            let selectedSeats = displaySelectedSeats();
-            document.getElementById('selected-seats').innerHTML = selectedSeats;
+            let displayedSelectedSeats = displaySelectedSeats();
+            document.getElementById('selected-seats').innerHTML = displayedSelectedSeats;
         }
-        else if(e.target.matches('[id=remove-button]')) {
-            let selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
+
+        // event for remove button in Cart.js
+        if(e.target.matches('[id=remove-button]')) {
             let indexToRemove = Number(e.target.attributes.key.value);
             selectedSeats = selectedSeats.filter((seat, i) => i !== indexToRemove);
             localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
@@ -133,6 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById('seats').innerHTML = seats;
             document.getElementById('selected-seats').innerHTML = displaySelectedSeats();
         }
+
         // refresh map of seats for current session
         if(e.target.id === 'date') {
             let movieID = document.getElementById('movie').selectedIndex;
@@ -148,3 +161,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     router();
 })
+
+export function bookSeats() {
+    selectedSeats.forEach(seat => {
+        bookedSeats.push(seat);
+    })
+    selectedSeats = [];
+    localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats))
+    localStorage.setItem('bookedSeats', JSON.stringify(bookedSeats));
+}
