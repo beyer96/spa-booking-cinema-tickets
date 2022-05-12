@@ -45,7 +45,7 @@ h1 {
     background: var(--dark-purple-hover);
     cursor: pointer;
 }
-.cart a {
+.cart > a {
     margin-top: 1.5rem;
     padding: .5rem .75rem;
     background: var(--dark-purple);
