@@ -24,9 +24,9 @@ export default class extends View {
         <link rel="stylesheet" href="./static/styles/home.css">
         <header>
             <ul>
-                <a href="/" data-link><li>Back home</li></a>
                 <a href="/movies" data-link><li>Movies</li></a>
                 <a href="/schedule" data-link><li>Schedule</li></a>
+                <a href="/cart" data-link><li>Cart</li></a>
             </ul>
         </header>
         <main>
