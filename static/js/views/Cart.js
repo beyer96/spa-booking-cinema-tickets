@@ -8,10 +8,10 @@ export function displayCart() {
     let seats = selectedSeats.map((seat, i) => {
         return `
             <div class="cart__seat">
-                <span>${seat.movie}</span>
-                <span>${seat.selectedTime}</span>
-                <span>Seat n. ${seat.seat}</span>
-                <button id="remove-button" seat=${seat.seat} key=${i}>X</button>
+                <span id="movie-name">${seat.movie}</span>
+                <span id="selected-time">${seat.selectedTime}</span>
+                <span id="selected-seat">Seat n. ${seat.seat}</span>
+                <button id="remove-button" seat=${seat.seat} key=${i}>Remove</button>
             </div>
         `
     }).join('');
@@ -38,7 +38,7 @@ export default class extends View {
             </header>
             <main>
                 <h1>Cart</h1>
-                <div id="cart">
+                <div class="cart" id="cart">
                     ${displayCart()}
                 </div>
             </main>

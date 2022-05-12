@@ -1,48 +1,31 @@
 @import url(./index.css);
 
-header {
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 70px;
-    background: var(--light-purple);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-header ul {
-    list-style: none;
-}
-header a {
-    text-decoration: none;
-    color: black;
-    font-weight: 600;
-    font-size: 20px;
-    padding: 0 1rem;
-}
-header a:hover,
-header a:focus {
-    color: white;
-}
-header li {
-    display: inline;
-}
-
 main {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -40%);
+    width: 80%;
+    max-width: 500px;
     padding: 2rem;
+    margin: 3rem auto 0 auto;
     background: var(--light-purple);
     border-radius: 15px;
 }
 h1 {
+    font-size: 1.2rem;
+    margin: 1rem 0;
     text-align: center;
-    margin-bottom: 1rem;
 }
 p {
-    width: 500px;
-    margin: 0 auto;
-    text-align: center;
+    font-size: .9rem;
+}
+
+@media screen and (min-width: 760px) {
+    main {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -40%);
+        margin-top: unset;
+    }
+    p {
+        margin: 0 auto;
+    }
 }

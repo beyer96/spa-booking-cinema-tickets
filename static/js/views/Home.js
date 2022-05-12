@@ -23,16 +23,23 @@ export default class extends View {
         return `
         <link rel="stylesheet" href="./static/styles/home.css">
         <header>
-            <h1>Book-buster</h1>
-            <h2>Pick a movie & book your ticket. Online.</h2>
-            <p>Book-buster is SPA for booking movie tickets online. Choose a blockbuster, date and book your ticket! It's that easy.</p>
-            <div class="cta-buttons">
-                <a href='/movies' id="pick-movie" class="cta-buttons__button" data-link>Pick a movie</a>
-                <span>or</span>
-                <a href='/schedule' id="pick-date" class="cta-buttons__button" data-link>Select date</a>
-            </div>
+            <ul>
+                <a href="/" data-link><li>Back home</li></a>
+                <a href="/movies" data-link><li>Movies</li></a>
+                <a href="/schedule" data-link><li>Schedule</li></a>
+            </ul>
         </header>
         <main>
+            <div class="intro">
+                <h1>Book-buster</h1>
+                <h2>Pick a movie & book your ticket. Online.</h2>
+                <p>Book-buster is SPA for booking movie tickets online. Choose a blockbuster, date and book your ticket! It's that easy.</p>
+                <div class="cta-buttons">
+                    <a href='/movies' id="pick-movie" class="cta-buttons__button" data-link>Pick a movie</a>
+                    <span>or</span>
+                    <a href='/schedule' id="pick-date" class="cta-buttons__button" data-link>Select date</a>
+                </div>
+            </div>
             <div class="top-picks">
                 <h2>Top picks</h2>
                 ${this.getTopPicks()}

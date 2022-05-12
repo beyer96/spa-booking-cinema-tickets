@@ -31,7 +31,7 @@ export default class extends View {
             </header>
             <main>
                 <h1>Movies</h1>
-                <p>List of currently available movies in our cinema. Click movie, which you want to see, to see available term.</p>
+                <p>List of currently available movies in our cinema. Click movie, which you want to see, to look for available terms.</p>
                 <div class="movies">
                     ${this.populateMovies()}
                 </div>

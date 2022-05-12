@@ -5,8 +5,10 @@
     --light-purple-hover: #807fb6;
     --dark-purple: #443F82;
     --dark-purple-hover: #2e2b5a;
-    --booked: rgb(126, 230, 126);
-    --booked-hover: rgb(119, 170, 119);
+    --selected: rgb(126, 230, 126);
+    --selected-hover: rgb(119, 170, 119);
+    --booked: rgb(0, 0, 0);
+    --booked-hover: rgb(43, 43, 43);
 }
 
 * {
@@ -20,4 +22,37 @@ html, body {
     padding: 0;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
+}
+
+header {
+    width: 100%;
+    height: 70px;
+    background: var(--light-purple);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header ul {
+    list-style: none;
+}
+header a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 0 1rem;
+}
+header a:hover,
+header a:focus {
+    color: white;
+}
+header li {
+    display: inline;
+}
+
+@media screen and (max-width: 400px) {
+    header a {
+        font-size: 1rem;
+        padding: 0 .6rem;
+    }
 }

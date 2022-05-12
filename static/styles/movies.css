@@ -1,32 +1,5 @@
 @import url(./index.css);
 
-header {
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 70px;
-    background: var(--light-purple);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-header ul {
-    list-style: none;
-}
-header a {
-    text-decoration: none;
-    color: black;
-    font-weight: 600;
-    font-size: 20px;
-    padding: 0 1rem;
-}
-header a:hover,
-header a:focus {
-    color: white;
-}
-header li {
-    display: inline;
-}
 main {
     margin: 0 auto;
     padding: 2rem 0;
@@ -34,35 +7,104 @@ main {
 }
 main h1 {
     margin-bottom: 1rem;
+    padding: 0 2rem;
+}
+main > p {
+    margin-bottom: 2rem;
+    padding: 0 2rem;
 }
 .movies {
-    width: 100vw;
-    padding: 2rem 6rem;
-    margin: 0 auto;
-    display: grid;
-    grid-template: none / repeat(4, 1fr);
-    grid-gap: 1.3rem;
-}
-.movies a:hover,
-.movies a:focus {
-    color: var(--dark-purple);
-    opacity: .7;
-}
-.movies__movie a {
-    height: 450px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+}
+.movies a:hover,
+.movies a:focus {
+    color: var(--dark-purple);
+    opacity: .75;
+}
+.movies__movie {
+    padding: 2rem;
+}
+.movies > div:nth-child(even) {
+    background: rgb(240, 240, 255);
+}
+.movies__movie a {
     text-decoration: none;
     color: unset;
 }
 .movies__movie h2 {
-    margin: 1rem 0;
+    height: 3rem;
+    font-size: 1.15rem;
 }
 .movies__movie img {
-    max-width: 100%;
+    width: 100%;
+    height: auto;
+    margin: 1rem 0;
 }
 .movies__movie p {
     margin-top: auto;
+}
+
+
+
+@media screen and (min-width: 600px) {
+    .movies {
+        display: grid;
+        grid-template-areas: ". .";
+        grid-gap: 1rem;
+    }
+    .movies__movie {
+        height: 100%;
+    }
+    .movies > div:nth-child(even) {
+        background: white;
+    }
+}
+
+@media screen and (min-width: 730px) {
+    .movies {
+        grid-template-areas: ". . .";
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    main {
+        margin: 0 auto;
+        padding: 2rem 0;
+        text-align: center;
+    }
+    main h1 {
+        margin-bottom: 1rem;
+    }
+    .movies {
+        width: 100%;
+        padding: 2rem 4rem;
+        margin: 0 auto;
+        display: grid;
+        grid-template: none / repeat(4, 1fr);
+        grid-gap: 1.3rem;
+    }
+    
+    .movies__movie {
+        height: 100%;
+    }
+    .movies__movie a {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+    }
+    .movies__movie h2 {
+        height: 3.5rem;
+        font-size: 1.05rem;
+        margin-bottom: auto;
+    }
+    
+    .movies__movie p {
+        margin-top: auto;
+    }
 }

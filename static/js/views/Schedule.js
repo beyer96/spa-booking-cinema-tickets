@@ -124,10 +124,10 @@ export function displaySelectedSeats(movieID) {
     let seatDivs = selectedSeatsForSelectedSession.map(seat => {
         return `
             <div class="selected-seats__seat">
-                <span>${seat.movie}</span>
-                <span>${seat.selectedTime}</span>
-                <span>Seat n. ${seat.seat}</span>
-                <button id="unselect-seat" seat=${seat.seat}>X</button>
+                <span id="movie-name">${seat.movie}</span>
+                <span id="selected-time">${seat.selectedTime}</span>
+                <span id="selected-seat">Seat n. ${seat.seat}</span>
+                <button id="unselect-seat" seat=${seat.seat}>Remove</button>
             </div>`
     }).join('');
     return `
@@ -179,14 +179,22 @@ export default class extends View {
                     </div>
                 </div>
 
-                <div id="selected-seats">
-                    ${displaySelectedSeats(this.params.movieID)}
-                </div>
-
                 <h2>Seats: <span id="movie-name">${movies[movieID].name}</span> --- <span id="selected-time">${nextSession}</span></h2>
+                
                 <div class="seats" id="seats">
                     ${displaySeats(movieID, day, session)}
                 </div>
+                <div class="explanatory">
+                    <span class="explanatory__free">Free seats</span>
+                    <span class="explanatory__occupied">Occupied seats</span>
+                    <span class="explanatory__selected">Selected seats</span>
+                    <span class="explanatory__booked">Booked seats</span>
+                </div>
+                <div class="selected-seats" id="selected-seats">
+                    <h2>Selected seats:</h2>
+                    ${displaySelectedSeats(this.params.movieID)}
+                </div>
+                
             </main>
         `;
     }

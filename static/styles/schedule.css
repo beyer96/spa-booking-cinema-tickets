@@ -1,139 +1,137 @@
 @import url(./index.css);
 
-header {
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 70px;
-    background: var(--light-purple);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-header ul {
-    list-style: none;
-}
-header a {
-    text-decoration: none;
-    color: black;
-    font-weight: 600;
-    font-size: 20px;
-    padding: 0 1rem;
-}
-header a:hover,
-header a:focus {
-    color: white;
-}
-header li {
-    display: inline;
-}
-
 main {
-    padding: 2rem 6rem;
+    text-align: center;
+    padding: 0 2rem;
 }
 h1 {
-    text-align: center;
+    margin: 1.5rem 0;
 }
-
-.selectors {
-    height: 100px;
-    width: 550px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
+main > h2 {
+    margin: 1rem 0;
+    font-size: 1.2rem;
 }
+.selectors,
 .selectors > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+.selectors > div > select {
+    height: 40px;
+    background: var(--light-purple);
+    border: none;
+}
+#movie {
+    width: 240px;
+}
+#date {
+    width: 150px;
+}
+.selected-seats {
+    width: 100%;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 }
-.selectors label {
+.selected-seats__seat {
+    height: 120px;
+    width: 100%;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-bottom: 1px solid rgb(209, 224, 255);
+}
+.selected-seats__seat:last-of-type {
+    border-bottom: unset;
+}
+#movie-name {
     font-weight: 600;
 }
-.selectors > div > select {
-    width: 160px;
-    height: 40px;
-    background: var(--light-purple);
+.selected-seats__seat > button {
+    padding: .35rem;
+    border-radius: 15px;
     border: none;
-    font-size: 20px;
-}
-#movie {
-    width: 300px;
-}
-.selectors > div > select > option {
-    height: 90px;
-    padding: 3px;
-}
-.selectors > div > select > option:checked {
-    background: var(--light-purple-hover);
+    background: var(--dark-purple);
     color: white;
+    margin-top: -1.5rem;
+    align-self: flex-end;
 }
-
-#selected-seats {
-    width: 1000px;
-    margin: 0 auto;
+.selected-seats__seat > button:hover,
+.selected-seats__seat > button:focus {
+    background: var(--dark-purple-hover);
+    cursor: pointer;
 }
-#selected-seats p {
-    margin: 0 auto;
-    text-align: center;
-}
-#selected-seats > div {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 50px;
-    padding: .2rem 0;
-}
-#selected-seats > a {
-    margin: 1rem auto;
+.selected-seats a {
+    margin-top: 1rem;
+    padding: .5rem .75rem;
+    background: var(--dark-purple);
+    border-radius: 15px;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40px;
-    width: 100px;
-    background: var(--dark-purple);
-    color: white;
-    border-radius: 15px;
     text-decoration: none;
 }
-#selected-seats > a:hover,
-#selected-seats > a:focus {
-    cursor: pointer;
-    background: var(--dark-purple-hover);
-}
-h2 {
-    text-align: center;
-    margin: 2rem auto;
-}
-
 .seats {
-    width: 1000px;
+    max-width: 400px;
     display: flex;
-    flex-direction: column;
-    margin: 0 auto;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
     background: var(--dark-purple);
+    padding: 1rem 0;
+    margin: 0 auto;
+    position: relative; 
+}
+.seats::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    transform: translate(0 50%);
+    height: 50%;
+    width: 10px;
+    background: lightslategrey;
+    box-shadow:
+    -0.1px 0px 1.4px rgba(255, 255, 255, 0.17),
+    -0.3px 0px 3.1px rgba(255, 255, 255, 0.133),
+    -1.3px 0px 5.3px rgba(255, 255, 255, 0.118),
+    -3.2px 0px 8.2px rgba(255, 255, 255, 0.108),
+    -6.4px 0px 12.2px rgba(255, 255, 255, 0.099),
+    -11.6px 0px 17.9px rgba(255, 255, 255, 0.089),
+    -20.5px 0px 26.8px rgba(255, 255, 255, 0.079),
+    -38.3px 0px 42.7px rgba(255, 255, 255, 0.065),
+    -110px 0px 80px rgba(255, 255, 255, 0.044)
+    ;
 }
 .seats__row {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    flex-direction: column;
 }
 .seats__seat {
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     color: white;
     border-radius: 50%;
     margin: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 14px;
 }
+
 [data-reserved=true] {
     background: red;
 }
 [data-reserved=false] {
     background: var(--light-purple);
+    color: black;
 }
 [data-reserved=false]:hover,
 [data-reserved=false]:focus {
@@ -141,21 +139,210 @@ h2 {
     background: var(--light-purple-hover)
 }
 [data-reserved=selected] {
-    background: var(--booked);
+    background: var(--selected);
     color: black;
 }
 [data-reserved=selected]:hover,
 [data-reserved=selected]:focus {
     cursor: pointer;
-    background: var(--booked-hover);
+    background: var(--selected-hover);
     color: black;
 }
 [data-reserved=booked] {
-    background: black;
+    background: var(--booked);
     color: white;
 }
 
 [data-reserved=booked]:hover,
 [data-reserved=booked]:focus {
-    background: rgb(43, 43, 43);
+    background: var(--booked-hover);
+}
+
+.explanatory {
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.explanatory > span {
+    padding: 0 1rem;
+}
+.explanatory > span::before {
+    content: '';
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 3px;
+    font-weight: 600;
+}
+.explanatory__free::before {
+    background: var(--light-purple);
+}
+.explanatory__occupied::before {
+    background: red;
+}
+.explanatory__selected::before {
+    background: var(--selected);
+}
+.explanatory__booked::before {
+    background: var(--booked);
+}
+
+@media screen and (max-width: 350px) {
+    .seats {
+        padding: 0 1rem 0 0;
+        justify-content: flex-end;
+    }
+    .seats::after {
+        width: 6px;
+    }
+    .seats__seat {
+        font-size: .75rem;
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .selectors {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        height: 100px;
+        width: 550px;
+        margin: 0 auto;
+    }
+    #selected-seats {
+        width: 580px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 960px) {
+
+    main > h2 {
+        font-size: 1.5rem;
+    }
+    .selectors > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .selectors label {
+        font-weight: 600;
+    }
+    .selectors > div > select {
+        font-size: 20px;
+    }
+    #movie {
+        width: 300px;
+    }
+    .selectors > div > select > option {
+        height: 90px;
+        padding: 3px;
+    }
+    .selectors > div > select > option:checked {
+        background: var(--light-purple-hover);
+        color: white;
+    }
+    
+    #selected-seats {
+        width: 900px;
+        margin: 0 auto;
+    }
+    #selected-seats p {
+        margin: 0 auto;
+        text-align: center;
+    }
+    #selected-seats > div {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 100px;
+        padding: 1rem 0;
+        height: 60px;
+    }
+    #selected-seats button {
+        padding: .5rem;
+        background: var(--dark-purple);
+        color: white;
+        border-radius: 15px;
+        text-decoration: none;
+        align-self: unset;
+        margin-top: unset;
+    }
+    #selected-seats > a {
+        margin: 1rem auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 130px;
+        background: var(--dark-purple);
+        color: white;
+        border-radius: 15px;
+        text-decoration: none;
+    }
+    #selected-seats > a:hover,
+    #selected-seats > a:focus {
+        cursor: pointer;
+        background: var(--dark-purple-hover);
+    }
+    h2 {
+        text-align: center;
+        margin: 2rem auto;
+    }
+    
+    .seats {
+        width: 900px;
+        max-width: unset;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        background: var(--dark-purple);
+        padding-top: 2rem;
+    }
+    .seats::before {
+        content: '';
+        width: 50%;
+        height: 10px;
+        background: lightslategrey;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        box-shadow:
+        0px -0.1px 1.4px rgba(255, 255, 255, 0.17),
+        0px 0.3px 3.1px rgba(255, 255, 255, 0.133),
+        0px 1.3px 5.3px rgba(255, 255, 255, 0.118),
+        0px 3.2px 8.2px rgba(255, 255, 255, 0.108),
+        0px 6.4px 12.2px rgba(255, 255, 255, 0.099),
+        0px 11.6px 17.9px rgba(255, 255, 255, 0.089),
+        0px 20.5px 26.8px rgba(255, 255, 255, 0.079),
+        0px 38.3px 42.7px rgba(255, 255, 255, 0.065),
+        0px 110px 80px rgba(255, 255, 255, 0.044)
+        ;
+    }
+    .seats::after {
+        visibility: hidden;
+    }
+    .seats__row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .seats__seat {
+        width: 35px;
+        height: 35px;
+        color: white;
+        border-radius: 50%;
+        margin: 2px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+    }    
 }
